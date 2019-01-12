@@ -1,0 +1,3 @@
+.analog
+  each posts as |post|
+    post-card data=post

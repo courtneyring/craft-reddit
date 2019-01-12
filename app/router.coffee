@@ -6,6 +6,6 @@ Router = EmberRouter.extend
   rootURL: config.rootURL
 
 Router.map ->
-  @route 'analog', {path: '/'}
+  @route 'subreddit', {path: 'r/:subreddit_id'}
 
 `export default Router`
