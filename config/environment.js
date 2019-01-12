@@ -60,6 +60,7 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
       ENV.rootURL = '/craft-reddit'
       ENV.baseURL = '/craft-reddit'
+      ENV.locationType = 'hash'
   }
 
   return ENV;
