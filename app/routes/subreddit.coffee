@@ -3,7 +3,7 @@
 SubredditRoute = Route.extend
 
   model: (params) ->
-    console.log params.subreddit_id
+    # @set('subredditId', params.subreddit_id)
     sourceUrl = 'https://www.reddit.com/r/' + params.subreddit_id + '/.json'
     Ember.$.getJSON(sourceUrl).then (data) =>
       data = data.data.children.getEach('data')
@@ -13,7 +13,10 @@ SubredditRoute = Route.extend
 
       console.log data
       for d in data
-        url = (d.preview.images[0].source.url).replace('&amp;', '&')
+        if d.preview
+          url = (d.preview.images[0].source.url).replace('&amp;', '&')
+        else
+          url = ''
         modelArr.push(
           title: d.title,
           author: d.author,
@@ -22,6 +25,11 @@ SubredditRoute = Route.extend
           created: d.created_utc
           isFavorite: false
         )
-      return modelArr
+      return {id: params.subreddit_id, data: modelArr}
+
+  # afterModel: (model, transition) ->
+  #
+  #   console.log transition.params.subreddit.subreddit_id
+  #   @set('subredditId', transition.params.subreddit.subreddit_id)
 
 `export default SubredditRoute`

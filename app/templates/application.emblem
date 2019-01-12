@@ -1,6 +1,6 @@
 .menubar
   each menubarLinks as |menubarLink|
-    = link-to menubarLink.route class='menubar__link'
+    = link-to menubarLink.route menubarLink.params class='menubar__link'
         fa-icon menubarLink.icon
         menubarLink.label
 

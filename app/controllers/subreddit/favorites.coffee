@@ -3,10 +3,9 @@
 
 SubredditFavoritesController = Controller.extend
 
-  posts: alias 'model'
+  posts: alias 'model.data'
 
   favorites: (->
-    console.log @get('posts').filterBy('isFavorite')
     @get('posts').filterBy('isFavorite')
   ).property('posts.@each.isFavorite')
 

@@ -5,18 +5,23 @@ ApplicationController = Controller.extend
 
   menubarLinks: (->[
       route: 'subreddit.index'
-      label: '/r/analog'
+      params: @get('subredditId')
+      label: '/r/' + @get('subredditId')
       icon: 'reddit-alien'
     ,
       route: 'subreddit.favorites'
+      params: @get('subredditId')
       label: 'favorites (' + @get('favoriteCount') + ')'
       icon: 'heart'
     ]
-  ).property('favoriteCount')
+  ).property('favoriteCount', 'subredditId')
 
   subreddit: controller()
 
   favoriteCount: alias 'subreddit.favoriteCount'
+  subredditId: alias 'subreddit.subredditId'
+
+
 
 
 `export default ApplicationController`
