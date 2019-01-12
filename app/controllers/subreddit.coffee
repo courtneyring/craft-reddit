@@ -4,7 +4,7 @@
 SubredditController = Controller.extend
 
   favoriteCount: (->
-    @get('model').filterBy('isFavorite').length
+    @get('model')?.filterBy('isFavorite').length
   ).property('model.@each.isFavorite')
 
   # posts: alias 'model'
