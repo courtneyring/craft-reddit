@@ -7,6 +7,6 @@ Router = EmberRouter.extend
 
 Router.map ->
   @route 'subreddit', {path: 'r/:subreddit_id'}, ->
-    @route 'favorites', {path: '/favorites'}
+    @route 'favorites', {path: 'favorites'}
 
 `export default Router`

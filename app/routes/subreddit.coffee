@@ -1,8 +1,9 @@
 `import Route from '@ember/routing/route'`
 
-SubredditRoute = Route.extend 
+SubredditRoute = Route.extend
 
   model: (params) ->
+    console.log params.subreddit_id
     sourceUrl = 'https://www.reddit.com/r/' + params.subreddit_id + '/.json'
     Ember.$.getJSON(sourceUrl).then (data) =>
       data = data.data.children.getEach('data')
