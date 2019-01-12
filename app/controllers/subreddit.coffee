@@ -3,8 +3,19 @@
 
 SubredditController = Controller.extend
 
-  posts: alias 'model'
+  favoriteCount: (->
+    @get('model').filterBy('isFavorite').length
+  ).property('model.@each.isFavorite')
+
+  # posts: alias 'model'
 
 
+  # firstPost: (->
+  #   console.log @get('posts').getEach('title')
+  #   @get('posts.firstObject')
+  # ).property('posts')
+  # # init: () ->
+  #   firstPost = @get('posts.firstObject')
+  #   console.log firstPost
 
 `export default SubredditController`

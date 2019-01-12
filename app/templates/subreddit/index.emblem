@@ -1,0 +1,3 @@
+.subreddit
+  each posts as |post|
+    post-card postData=post

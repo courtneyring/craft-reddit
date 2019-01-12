@@ -1,16 +1,77 @@
 .post-card
   background-color: white
   box-shadow: 0px 3px 8px 1px rgba(48,48,48,.2)
-  height: 600px
+  display: flex
+  flex-direction: column
+  height: 400px
+  justify-content: space-between
   margin: 20px 0px
   max-width: 500px
-  width: 500px
+  position: relative
+  width: 80%
+
+  &:hover > .post-card__favorite.unapplied,
+  &:hover > .post-card__remove
+    left: 4%
+    opacity: 1
 
 .post-card__image
-  height: 350px
+  height: 200px
   width: 100%
 
 .post-card__image
   background-position: center
   background-repeat: no-repeat
   background-size: cover
+
+.post-card__action-icon
+  color: white
+  cursor: pointer
+  font-size: 22px
+  left: -10px
+  opacity: 0
+  position: absolute
+  top: 10px
+
+  transition: opacity 0.2s, left 0.5s
+
+.post-card__favorite
+  @extend .post-card__action-icon
+
+  &.applied
+    color: $color-red-light
+    left: 90%
+    opacity: 1
+
+.post-card__remove
+  @extend .post-card__action-icon
+
+.post-card__title
+  color: $color-black
+  font-family: 'Arvo', sans-serif
+  font-size: 18px
+  line-height: 24px
+  padding: 20px
+  text-align: center
+  width: 100%
+
+.post-card__footer
+  align-items: center
+  border-top: 1px solid rgba($color-grey, 0.3)
+  color: $color-grey
+  display: flex
+  font-size: 12px
+  height: 60px
+  justify-content: center
+
+  & > .fa
+    margin: 0px 5px
+
+
+@media(min-width: 500px)
+  .post-card
+    height: 600px
+    width: 500px
+
+  .post-card__image
+    height: 350px

@@ -1,2 +1,17 @@
-.post-card__image__container
-  .post-card__image style=style
+if (is-equal theme 'favorite')
+  .post-card__remove{action 'toggleFavorite'}
+    fa-icon 'trash'
+else
+  .post-card__favorite{action 'toggleFavorite'} class={postData.isFavorite:applied:unapplied}
+    fa-icon 'heart'
+.post-card__body
+  .post-card__image__container
+    .post-card__image style=style
+  .post-card__title: postData.title
+.post-card__footer
+  fa-icon 'user'
+  |#{postData.author} &bull;
+  fa-icon 'clock-o'
+  |#{timeFromCreated} &bull;
+  fa-icon 'bolt'
+  |#{postData.score}

@@ -1,9 +1,7 @@
 .menubar
-  .menubar__link.active
-    fa-icon 'reddit-alien'
-    |/r/analog
-  .menubar__link
-    fa-icon 'heart'
-    |favorites
+  each menubarLinks as |menubarLink|
+    = link-to menubarLink.route class='menubar__link'
+        fa-icon menubarLink.icon
+        menubarLink.label
 
 outlet
