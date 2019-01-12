@@ -1,0 +1,23 @@
+.menubar
+  // border-bottom: 1px solid grey
+  box-shadow: 0 2px 4px 0 rgba(48,48,48,.3)
+  display: flex
+  font-family: Helvetica, sans-serif
+  font-size: 16px
+  height: 50px
+
+.menubar__link
+  align-items: center
+  color: $color-blue-light
+  cursor: pointer
+  display: flex
+  justify-content: center
+  padding: 0px 20px
+
+  & > .fa
+    padding-right: 5px
+
+  &.active
+    background-color: $color-blue-light
+    color: white
+    pointer-events: none
