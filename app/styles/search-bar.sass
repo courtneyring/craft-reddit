@@ -1,5 +1,6 @@
 .search-bar
   margin: 0px 10px
+  position: relative
   width: 88px
 
 .search-bar__input-container
@@ -30,15 +31,20 @@
 .search-bar__options
   background-color: white
   box-shadow: 0px 3px 8px 1px rgba(48,48,48,.2)
+  overflow: hidden
   position: absolute
-  width: 220px
+  width: 100%
 
   .search-bar__option
     align-items: center
     cursor: pointer
-    display: flex
-    height: 30px
-    padding: 0px 10px
+    font-size: 14px
+    // display: flex
+    // height: 30px
+    overflow: hidden
+    padding: 10px
+    text-overflow: ellipsis
+    width: 100%
 
     &:hover,
     &.active

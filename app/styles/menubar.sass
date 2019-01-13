@@ -4,7 +4,7 @@
   box-shadow: 0 2px 4px 0 rgba(48,48,48,.3)
   display: flex
   font-family: Helvetica, sans-serif
-  font-size: 16px
+  font-size: 14px
   height: 50px
   justify-content: space-between
   position: sticky
@@ -22,7 +22,7 @@
   cursor: pointer
   display: flex
   justify-content: center
-  padding: 0px 20px
+  padding: 0px 10px
   text-decoration: none
 
   transition: background-color 0.3s ease-in
@@ -37,3 +37,10 @@
     background-color: $color-blue-light
     color: white
     pointer-events: none
+
+@media(min-width: 500px)
+  .menubar
+    font-size: 16px
+
+  .menubar__link
+    padding: 0px 20px
