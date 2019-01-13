@@ -4,7 +4,10 @@ DataRequestMixin = Mixin.create
 
   getData: (url, errFn) ->
     return new Promise (resolve, reject) =>
-      request = new XMLHttpRequest()
+      if window.XMLHttpRequest
+        request = new XMLHttpRequest();
+      else
+        request = new ActiveXObject("Microsoft.XMLHTTP");
       request.open('GET', url, true)
       request.onreadystatechange = () =>
         if request.readyState == 4
