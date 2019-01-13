@@ -1,7 +1,5 @@
 `import Route from '@ember/routing/route'`
 
-FavoritesRoute = Route.extend {}
+SubredditFavoritesRoute = Route.extend {}
 
-  # model: (params) ->
-
-`export default FavoritesRoute`
+`export default SubredditFavoritesRoute`

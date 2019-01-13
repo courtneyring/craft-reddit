@@ -21,13 +21,8 @@ SubredditRoute = Route.extend
           if request.status == 200
             data = JSON.parse(request.responseText)
             return resolve(data)
-          # else
-            # @transitionTo('index')
-        # if request.status >= 200 && request.status < 400
-        #   data = JSON.parse(request.responseText)
-        #   return resolve(data)
-        # else
-        #   @transitionToRoute('/')
+          else
+            window.location.href = '/'
       request.send()
 
 
@@ -44,6 +39,8 @@ SubredditRoute = Route.extend
         isFavorite: false
       )
     return modelArr
+
+
 
 
 

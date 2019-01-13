@@ -4,6 +4,7 @@
 
 PostCard = Component.extend
   classNames: ['post-card']
+  classNameBindings: ['type']
 
   style: (->
     htmlSafe("background-image: url(#{@get('postData.imageUrl')})")

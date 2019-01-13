@@ -9,15 +9,14 @@ SubredditController = Controller.extend
 
   subredditId: alias 'model.id'
 
-  # posts: alias 'model'
+  view: 'card'
 
+  actions:
+    setView: (selectedView) ->
+      @set('view', selectedView)
 
-  # firstPost: (->
-  #   console.log @get('posts').getEach('title')
-  #   @get('posts.firstObject')
-  # ).property('posts')
-  # # init: () ->
-  #   firstPost = @get('posts.firstObject')
-  #   console.log firstPost
+    # setSort: () ->
+    #   @set('sort', sortBy(document.getElementById('sort-select').value))
+
 
 `export default SubredditController`

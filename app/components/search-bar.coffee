@@ -30,7 +30,6 @@ SearchBar = Component.extend
 
 
   enterKeyAction: (e) ->
-    console.log @get('searchValue')
     focusIdx = @get('focusedOptionIdx')
     if focusIdx != -1
       selection = @get('searchOptions').objectAt(focusIdx)

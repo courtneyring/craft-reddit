@@ -1,3 +1,2 @@
-.subreddit
-  each posts as |post|
-    post-card postData=post
+each posts as |post|
+  post-card postData=post type=view

@@ -8,7 +8,7 @@
   margin: 20px 0px
   max-width: 500px
   position: relative
-  width: 80%
+  width: 100%
 
   &:hover > .post-card__favorite.unapplied,
   &:hover > .post-card__remove
@@ -76,6 +76,57 @@
   .post-card__image
     height: 350px
 
+
+
+@media(min-width: 1025px)
+
   .post-card__action-icon
     left: -10px
     opacity: 0
+
+  .post-card.row > .post-card__action-icon
+    left: 25px
+
+  // Row Variation
+  .post-card.row
+    align-items: center
+    flex-direction: row
+    height: 75px
+    max-width: none
+    width: 100%
+
+    &:hover > .post-card__favorite.unapplied,
+    &:hover > .post-card__remove
+      left: 25px
+      opacity: 1
+
+    & > .post-card__action-icon
+      align-items: center
+      display: flex
+      height: 100%
+      top: 0
+
+    & > .post-card__body
+      align-items: center
+      display: flex
+      flex-direction: row
+      height: 100%
+
+      & > .post-card__image
+        height: 100%
+        width: 75px
+
+      & > .post-card__title
+        padding: 0px 20px
+        text-align: left
+
+    & > .post-card__footer
+      border-top: none
+      padding: 0px 20px
+
+
+    //
+    // .post-card.row
+    //   & .post-card__image
+    //     height: 100%
+    //     width: 75px
