@@ -1,0 +1,51 @@
+.search-bar
+  margin: 0px 10px
+  width: 88px
+
+.search-bar__input-container
+  align-items: center
+  display: flex
+  position: relative
+
+  & > .fa-search
+    color: $color-grey-dark
+    position: absolute
+    right: 10px
+
+.search-bar__input
+  background-color: $color-grey-light
+  border: 0px
+  box-shadow: none
+  font-size: 14px
+  height: 30px
+  padding: 0px 30px 0 10px
+  width: 100%
+
+  &:focus
+    background-color: white
+    border: 1px solid $color-blue-light
+    outline: none
+    outline-offset: 0px
+
+.search-bar__options
+  background-color: white
+  box-shadow: 0px 3px 8px 1px rgba(48,48,48,.2)
+  position: absolute
+  width: 220px
+
+  .search-bar__option
+    align-items: center
+    cursor: pointer
+    display: flex
+    height: 30px
+    padding: 0px 10px
+
+    &:hover,
+    &.active
+      background-color: $color-blue-light
+      color: white
+
+@media(min-width: 500px)
+  .search-bar
+    margin: 0px 30px
+    width: 220px

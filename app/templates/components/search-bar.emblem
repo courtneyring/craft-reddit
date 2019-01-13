@@ -1,0 +1,14 @@
+.search-bar__input-container
+  = input [
+    value = searchValue
+    class = 'search-bar__input'
+    placeholder = 'Search subreddits...'
+    key-up=(action 'getDataList')
+  ]
+  fa-icon 'search'
+
+if searchOptions.length
+  .search-bar__options
+    each searchOptions as |searchOption idx|
+      .search-bar__option{action 'select' searchOption} class={if (is-equal focusedOptionIdx idx) 'active'}
+        searchOption

@@ -1,3 +1,5 @@
 .subreddit
   each favorites as |post|
     post-card postData=post theme='favorite'
+  else
+    .subreddit__warning: |No favorites yet.

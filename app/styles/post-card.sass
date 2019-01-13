@@ -28,10 +28,10 @@
   color: white
   cursor: pointer
   font-size: 22px
-  left: -10px
-  opacity: 0
+  left: 4%
   position: absolute
   top: 10px
+  -webkit-text-stroke: 1px $color-grey
 
   transition: opacity 0.2s, left 0.5s
 
@@ -51,15 +51,16 @@
   font-family: 'Arvo', sans-serif
   font-size: 18px
   line-height: 24px
-  padding: 20px
+  padding: 20px 20px 40px 20px
   text-align: center
   width: 100%
 
 .post-card__footer
   align-items: center
   border-top: 1px solid rgba($color-grey, 0.3)
-  color: $color-grey
+  color: $color-grey-dark
   display: flex
+  font-family: Helvetica, sans-serif
   font-size: 12px
   height: 60px
   justify-content: center
@@ -70,8 +71,11 @@
 
 @media(min-width: 500px)
   .post-card
-    // height: 600px
     width: 500px
 
   .post-card__image
     height: 350px
+
+  .post-card__action-icon
+    left: -10px
+    opacity: 0

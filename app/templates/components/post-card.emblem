@@ -11,7 +11,7 @@ else
   .post-card__title: postData.title
 .post-card__footer
   fa-icon 'user'
-  |#{postData.author} &bull;
+  |/u/#{postData.author} &bull;
   fa-icon 'clock-o'
   |#{timeFromCreated} &bull;
   fa-icon 'bolt'

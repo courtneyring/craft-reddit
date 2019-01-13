@@ -1,7 +1,17 @@
 .menubar
-  each menubarLinks as |menubarLink|
-    = link-to menubarLink.route menubarLink.params class='menubar__link'
-        fa-icon menubarLink.icon
-        menubarLink.label
-
-outlet
+  .menubar__links
+    if subredditId
+      each menubarLinks as |menubarLink|
+        = link-to menubarLink.route menubarLink.params class='menubar__link'
+            fa-icon menubarLink.icon
+            menubarLink.label
+  search-bar options=subredditList selectAction=(action 'transitionToLink')
+if subredditId
+  outlet
+else
+  .index
+    .index__header: |Explore subreddits
+    .index__list
+      each subredditList as |subreddit|
+        = link-to 'subreddit.index' subreddit class='index__link'
+          subreddit

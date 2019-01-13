@@ -16,17 +16,25 @@ SubredditRoute = Route.extend
     return new Promise (resolve, reject) =>
       request = new XMLHttpRequest()
       request.open('GET', url, true)
-      request.onload = () =>
-        if request.status >= 200 && request.status < 400
-          data = JSON.parse(request.responseText)
-          return resolve(data)
+      request.onreadystatechange = () =>
+        if request.readyState == 4
+          if request.status == 200
+            data = JSON.parse(request.responseText)
+            return resolve(data)
+          # else
+            # @transitionTo('index')
+        # if request.status >= 200 && request.status < 400
+        #   data = JSON.parse(request.responseText)
+        #   return resolve(data)
+        # else
+        #   @transitionToRoute('/')
       request.send()
 
 
   _formatData: (data) ->
     modelArr = []
     for d in data
-      url = if d.preview then (d.preview.images[0].source.url).replace('&amp;', '&') else ''
+      url = if d.preview then (d.preview.images[0].source.url).replace(/&amp;/g, '&') else ''
       modelArr.push(
         title: d.title,
         author: d.author,
