@@ -54,6 +54,7 @@ SearchBar = Component.extend
   actions:
     getDataList: () ->
       if !@get('searchValue')
+        @set('searchOptions', null)
         return
       optionList = []
       for option in @get('options')

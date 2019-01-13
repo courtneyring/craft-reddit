@@ -2,7 +2,7 @@ if (is-equal theme 'favorite')
   .post-card__remove{action 'toggleFavorite'}
     fa-icon 'trash'
 else
-  .post-card__favorite{action 'toggleFavorite'} class={postData.isFavorite:applied:unapplied}
+  .post-card__favorite{action 'toggleFavorite'} class={isFavorite:applied:unapplied}
     fa-icon 'heart'
 .post-card__body
   if postData.imageUrl

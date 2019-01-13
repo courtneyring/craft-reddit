@@ -23,7 +23,8 @@ SubredditRoute = Route.extend DataRequestMixin,
         imageUrl: url,
         score: d.score
         created: d.created_utc
-        isFavorite: false
+        # isFavorite: false
+        id: d.id
       )
     return modelArr
 

@@ -1,12 +1,14 @@
 `import Controller, { inject as controller } from '@ember/controller'`
 `import { alias } from '@ember/object/computed'`
 `import DataRequestMixin from '../mixins/data-request-mixin'`
+`import { inject as service } from '@ember/service'`
 
 ApplicationController = Controller.extend  DataRequestMixin,
 
-  subreddit:      controller()
-  favoriteCount:  alias 'subreddit.favoriteCount'
-  subredditId:    alias 'subreddit.subredditId'
+  subreddit:       controller()
+  favoriteService: service()
+  favoriteCount:   alias 'favoriteService.favoriteCount'
+  subredditId:     alias 'subreddit.subredditId'
 
   init: () ->
     url = 'https://www.reddit.com/reddits.json'
@@ -14,7 +16,8 @@ ApplicationController = Controller.extend  DataRequestMixin,
       data = @formatData(json.data.children.getEach('data'))
       @set('subredditList', data)
 
-  menubarLinks: (->[
+  menubarLinks: (->
+    [
       route:  'subreddit.index'
       params: @get('subredditId')
       label:  '/r/' + @get('subredditId')
