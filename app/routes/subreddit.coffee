@@ -1,5 +1,6 @@
 `import Route from '@ember/routing/route'`
 `import DataRequestMixin from '../mixins/data-request-mixin'`
+`import ENV from '../config/environment'`
 
 SubredditRoute = Route.extend DataRequestMixin,
 
@@ -7,7 +8,7 @@ SubredditRoute = Route.extend DataRequestMixin,
     model = {id: params.subreddit_id}
     sourceUrl = 'https://www.reddit.com/r/' + params.subreddit_id + '/.json'
 
-    @getData(sourceUrl, () => window.location.href = '/' ).then (json) =>
+    @getData(sourceUrl, () => window.location.href = ENV.rootURL ).then (json) =>
       data = @_formatData(json.data.children.getEach('data'))
       model['data'] = data
       return model
