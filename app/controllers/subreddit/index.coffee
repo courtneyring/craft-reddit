@@ -3,9 +3,9 @@
 
 SubredditIndexController = Controller.extend
 
-  posts: alias 'model.data'
+  posts:     alias 'model.data'
   subreddit: controller()
-  view: alias 'subreddit.view'
-  
+  view:      alias 'subreddit.view'
+
 
 `export default SubredditIndexController`

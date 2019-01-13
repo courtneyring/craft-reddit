@@ -1,9 +1,8 @@
 `import Component from '@ember/component'`
 `import { htmlSafe } from '@ember/string'`
 
-
 PostCard = Component.extend
-  classNames: ['post-card']
+  classNames:        ['post-card']
   classNameBindings: ['type']
 
   style: (->
@@ -17,8 +16,5 @@ PostCard = Component.extend
   actions:
     toggleFavorite: () ->
       @toggleProperty('postData.isFavorite')
-
-    # undoFavoritePost: () ->
-    #   @set('postData.isFavorite', false)
 
 `export default PostCard`

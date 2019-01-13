@@ -10,6 +10,4 @@ Router.map ->
     @route 'index', {path: '/'},
     @route 'favorites', {path: '/favorites'}
 
-  # @route 'index', {path: '/*'}
-
 `export default Router`

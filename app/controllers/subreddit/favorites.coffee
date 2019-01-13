@@ -1,14 +1,12 @@
 `import Controller, { inject as controller } from '@ember/controller'`
-`import { alias } from '@ember/object/computed'`
+`import { alias, filterBy } from '@ember/object/computed'`
 
 SubredditFavoritesController = Controller.extend
 
-  posts: alias 'model.data'
+  posts:     alias 'model.data'
   subreddit: controller()
-  view: alias 'subreddit.view'
+  view:      alias 'subreddit.view'
+  favorites: filterBy 'posts', 'isFavorite'
 
-  favorites: (->
-    @get('posts').filterBy('isFavorite')
-  ).property('posts.@each.isFavorite')
 
 `export default SubredditFavoritesController`

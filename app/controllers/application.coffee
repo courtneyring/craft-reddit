@@ -1,7 +1,8 @@
 `import Controller, { inject as controller } from '@ember/controller'`
 `import { alias } from '@ember/object/computed'`
+`import DataRequestMixin from '../mixins/data-request-mixin'`
 
-ApplicationController = Controller.extend
+ApplicationController = Controller.extend  DataRequestMixin,
 
   subreddit:      controller()
   favoriteCount:  alias 'subreddit.favoriteCount'
@@ -9,32 +10,23 @@ ApplicationController = Controller.extend
 
   init: () ->
     url = 'https://www.reddit.com/reddits.json'
-    @getData(url).then (json) =>
+    @getData(url, () => return resolve()).then (json) =>
       data = @formatData(json.data.children.getEach('data'))
       @set('subredditList', data)
 
   menubarLinks: (->[
-      route: 'subreddit.index'
+      route:  'subreddit.index'
       params: @get('subredditId')
-      label: '/r/' + @get('subredditId')
-      icon: 'reddit-alien'
+      label:  '/r/' + @get('subredditId')
+      icon:   'reddit-alien'
     ,
-      route: 'subreddit.favorites'
+      route:  'subreddit.favorites'
       params: @get('subredditId')
-      label: 'favorites (' + @get('favoriteCount') + ')'
-      icon: 'heart'
+      label:  'favorites (' + @get('favoriteCount') + ')'
+      icon:   'heart'
     ]
   ).property('favoriteCount', 'subredditId')
 
-  getData: (url) ->
-    return new Promise (resolve, reject) =>
-      request = new XMLHttpRequest()
-      request.open('GET', url, true)
-      request.onload = () =>
-        if request.status >= 200 && request.status < 400
-          data = JSON.parse(request.responseText)
-          return resolve(data)
-      request.send()
 
   formatData: (data) ->
     subredditArr = []

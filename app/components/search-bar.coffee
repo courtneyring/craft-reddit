@@ -9,7 +9,7 @@ SearchBar = Component.extend
     if !@get('searchOptions.length')
       return
     focusIdx = @get('focusedOptionIdx')
-    lastIdx = @get('searchOptions.length') - 1
+    lastIdx  = @get('searchOptions.length') - 1
 
     if focusIdx == -1
       @set('focusedOptionIdx', 0)
@@ -21,7 +21,7 @@ SearchBar = Component.extend
     if !@get('searchOptions.length')
       return
     focusIdx = @get('focusedOptionIdx')
-    lastIdx = @get('searchOptions.length') - 1
+    lastIdx  = @get('searchOptions.length') - 1
 
     if focusIdx == -1
       @set('focusedOptionIdx', lastIdx)
@@ -47,8 +47,8 @@ SearchBar = Component.extend
 
   resetSearch: () ->
     @setProperties
-      searchOptions: []
-      searchValue: []
+      searchOptions:    []
+      searchValue:      []
       focusedOptionIdx: -1
 
   actions:
@@ -64,9 +64,6 @@ SearchBar = Component.extend
     select: (option) ->
       @selectAction(option)
       @resetSearch()
-
-
-
 
 
 `export default SearchBar`

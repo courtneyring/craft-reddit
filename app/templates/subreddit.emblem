@@ -7,13 +7,5 @@
           fa-icon 'square'
         .action-bar__icon{action 'setView' 'row'} class={if (is-equal view 'row') 'active'}
           fa-icon 'bars'
-      / .action-bar__section
-      /   .action-bar__label: |sort:
-      /   select id='sort-select' onchange={action 'setSort'}
-      /     option value='title': |Title
-      /     option value='author': |Author
-      /     option value='created': |Date Created
-      /     option value='score': |Score
-
   .subreddit__posts
     outlet

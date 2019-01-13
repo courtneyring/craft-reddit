@@ -1,30 +1,16 @@
 `import Route from '@ember/routing/route'`
+`import DataRequestMixin from '../mixins/data-request-mixin'`
 
-SubredditRoute = Route.extend
+SubredditRoute = Route.extend DataRequestMixin,
 
   model: (params) ->
     model = {id: params.subreddit_id}
     sourceUrl = 'https://www.reddit.com/r/' + params.subreddit_id + '/.json'
 
-    @_getData(sourceUrl).then (json) =>
+    @getData(sourceUrl, () => window.location.href = '/' ).then (json) =>
       data = @_formatData(json.data.children.getEach('data'))
       model['data'] = data
       return model
-
-
-  _getData: (url) ->
-    return new Promise (resolve, reject) =>
-      request = new XMLHttpRequest()
-      request.open('GET', url, true)
-      request.onreadystatechange = () =>
-        if request.readyState == 4
-          if request.status == 200
-            data = JSON.parse(request.responseText)
-            return resolve(data)
-          else
-            window.location.href = '/'
-      request.send()
-
 
   _formatData: (data) ->
     modelArr = []
