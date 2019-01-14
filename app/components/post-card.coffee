@@ -6,6 +6,10 @@ PostCard = Component.extend
   classNames:        ['post-card']
   classNameBindings: ['type']
 
+  click: (e) ->
+    if !(e.target.classList).contains('fa')
+      window.open(@get('postData.url'))
+
   favoriteService: service()
 
   isFavorite: (->

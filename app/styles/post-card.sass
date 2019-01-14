@@ -1,5 +1,6 @@
 .post-card
   background-color: white
+  border: 2px solid transparent
   box-shadow: 0px 3px 8px 1px rgba(48,48,48,.2)
   display: flex
   flex-direction: column
@@ -9,10 +10,14 @@
   position: relative
   width: 100%
 
-  &:hover > .post-card__favorite.unapplied,
-  &:hover > .post-card__remove
-    left: 4%
-    opacity: 1
+  &:hover
+    border-color: $color-grey
+    cursor: pointer
+
+    & > .post-card__favorite.unapplied,
+    & > .post-card__remove
+      left: 4%
+      opacity: 1
 
 .post-card__image
   height: 200px
@@ -31,8 +36,8 @@
   position: absolute
   top: 10px
   -webkit-text-stroke: 1px $color-grey
-
   transition: opacity 0.2s, left 0.5s
+
 
 .post-card__favorite
   @extend .post-card__action-icon
@@ -42,8 +47,14 @@
     left: 90%
     opacity: 1
 
+  &:hover
+    color: $color-red-light
+
 .post-card__remove
   @extend .post-card__action-icon
+
+  &:hover
+    color: $color-grey-dark
 
 .post-card__title
   color: $color-black
@@ -99,8 +110,7 @@
     & > .post-card__action-icon
       align-items: center
       display: flex
-      height: 100%
-      top: 0
+      top: 30px
 
     & > .post-card__body
       align-items: center
