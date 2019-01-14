@@ -10,14 +10,10 @@
   position: relative
   width: 100%
 
-  &:hover
-    border-color: $color-grey
-    cursor: pointer
-
-    & > .post-card__favorite.unapplied,
-    & > .post-card__remove
-      left: 4%
-      opacity: 1
+  & > .post-card__favorite.unapplied,
+  & > .post-card__remove
+    left: 4%
+    opacity: 1
 
 .post-card__image
   height: 200px
@@ -46,9 +42,6 @@
     color: $color-red-light
     left: 90%
     opacity: 1
-
-  &:hover
-    color: $color-red-light
 
 .post-card__remove
   @extend .post-card__action-icon
@@ -86,6 +79,16 @@
     height: 350px
 
 @media(min-width: 1025px)
+
+  .post-card:hover
+      border-color: $color-grey
+      cursor: pointer
+
+  .post-card__favorite:hover
+      color: $color-red-light
+
+  .post-card__remove:hover
+      color: $color-grey-dark
 
   .post-card__action-icon
     left: -10px
