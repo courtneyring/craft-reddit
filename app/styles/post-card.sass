@@ -10,19 +10,14 @@
   position: relative
   width: 100%
 
-  & > .post-card__favorite.unapplied,
-  & > .post-card__remove
+  &:hover > .post-card__favorite.unapplied,
+  &:hover > .post-card__remove
     left: 4%
     opacity: 1
 
-.post-card__image
+.post-card__image-container
   height: 200px
   width: 100%
-
-.post-card__image
-  background-position: center
-  background-repeat: no-repeat
-  background-size: cover
 
 .post-card__action-icon
   color: white
@@ -75,7 +70,7 @@
   .post-card
     width: 500px
 
-  .post-card__image
+  .post-card__image-container
     height: 350px
 
 @media(min-width: 1025px)
@@ -121,7 +116,7 @@
       flex-direction: row
       height: 100%
 
-      & > .post-card__image
+      & > .post-card__image-container
         height: 100%
         width: 75px
 
@@ -132,3 +127,6 @@
     & > .post-card__footer
       border-top: none
       padding: 0px 20px
+
+    & .lazy-image__loader
+      display: none

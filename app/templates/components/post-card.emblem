@@ -6,7 +6,8 @@ else
     fa-icon 'heart'
 .post-card__body
   if postData.imageUrl
-    .post-card__image style=style
+    .post-card__image-container
+      lazy-image url=postData.imageUrl type=type
   .post-card__title: postData.title
 .post-card__footer
   fa-icon 'user'

@@ -1,0 +1,3 @@
+.lazy-image__image style=style
+unless loaded
+  .lazy-image__loader

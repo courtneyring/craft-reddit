@@ -9,7 +9,6 @@ SubredditRoute = Route.extend DataRequestMixin,
     sourceUrl = 'https://www.reddit.com/r/' + params.subreddit_id + '/.json'
 
     @getData(sourceUrl, () => window.location.href = ENV.rootURL ).then (json) =>
-      console.log json
       data = @_formatData(json.data.children.getEach('data'))
       model['data'] = data
       return model
@@ -28,8 +27,6 @@ SubredditRoute = Route.extend DataRequestMixin,
         id: d.id
       )
     return modelArr
-
-
 
 
 

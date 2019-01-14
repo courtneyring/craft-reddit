@@ -1,2 +1,2 @@
 each posts as |post|
-  post-card postData=post type=view
+  post-card postData=post type=view id=post.id
