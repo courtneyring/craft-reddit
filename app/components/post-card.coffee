@@ -7,7 +7,18 @@ PostCard = Component.extend
   classNameBindings: ['type']
 
   click: (e) ->
-    if !(e.target.classList).contains('fa')
+    if window.innerWidth < 1024
+      target = e.target
+      # console.log target.classList.contains('post-card__body')
+      while target
+        if (target.classList).contains('post-card__body')
+          window.open(@get('postData.url'))
+        else if (target.classList).contains('post-card')
+          break
+        target = target.parentNode
+        # console.log target
+
+    else if window.innerWidth >= 1024 && !(e.target.classList).contains('fa')
       window.open(@get('postData.url'))
 
   favoriteService: service()

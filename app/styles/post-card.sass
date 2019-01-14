@@ -21,12 +21,13 @@
   width: 100%
 
 .post-card__action-icon
+  bottom: 15px
   color: white
   cursor: pointer
   font-size: 22px
   left: 4%
   position: absolute
-  top: 10px
+
   -webkit-text-stroke: 1px $color-grey
   transition: opacity 0.2s, left 0.5s
 
@@ -86,8 +87,10 @@
       color: $color-grey-dark
 
   .post-card__action-icon
+    bottom: inherit
     left: -10px
     opacity: 0
+    top: 15px
 
   .post-card.row > .post-card__action-icon
     left: 25px
@@ -102,26 +105,30 @@
 
     &:hover > .post-card__favorite.unapplied,
     &:hover > .post-card__remove
-      left: 25px
-      opacity: 1
+      left: 15px
 
     & > .post-card__action-icon
       align-items: center
+      bottom: inherit
       display: flex
-      top: 30px
+      left: 15px
+      opacity: 1
+      top: inherit
 
     & > .post-card__body
       align-items: center
       display: flex
       flex-direction: row
       height: 100%
+      margin-left: 50px
 
       & > .post-card__image-container
         height: 100%
         width: 75px
+        margin-right: 20px
 
       & > .post-card__title
-        padding: 0px 20px
+        padding: 0px
         text-align: left
 
     & > .post-card__footer
